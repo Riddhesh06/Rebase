@@ -1,0 +1,52 @@
+<html>
+
+<head>
+    <script type="text/javascript">
+        function submitArray() {
+            var array1 = document.getElementById("array1").value.split(',').map(Number);
+            var array2 = document.getElementById("array2").value.split(',').map(Number);
+            var array3 = document.getElementById("array3").value.split(',').map(Number);
+            var array4 = document.getElementById("array4").value.split(',').map(Number);
+            var result = document.getElementById("result").innerHTML
+
+            var myArray = [array1, array2, array3, array4];
+            var finalArray = []
+
+            for (var i = 0; i < myArray.length; i++) {
+                if (myArray[i][0] / myArray[i][1] > 1.8 && myArray[i][0] / myArray[i][1] < 1.9) {
+                    finalArray.push(myArray[i])
+                }
+            }
+            if(finalArray.length > 0) {
+                document.getElementById("result").innerHTML  = "Eureka " + "[" + finalArray.toString() + "]"
+            }
+            else{
+                document.getElementById("result").innerHTML  ="conditions do not match"
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <div>
+        Input your 1st Array Number :
+        <input placeholder="array1" id="array1" />
+    </div>
+    <div>
+        Input your 2nd Array Number :
+        <input placeholder="array2" id="array2" />
+    </div>
+    <div>
+        Input your 3rd Array Number :
+        <input placeholder="array3" id="array3">
+    </div>
+    <div>
+        Input your 4th Array Number :
+        <input placeholder="array4" id="array4">
+    </div>
+    <button type="button" onclick=submitArray()>Submit</button>
+
+    <p id="result"></p>
+</body>
+
+</html>
